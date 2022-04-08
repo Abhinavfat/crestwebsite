@@ -1,2 +1,2 @@
 # Wenfei is bad at football
-# Abhinav has no brain
+# Samrath has no brane
