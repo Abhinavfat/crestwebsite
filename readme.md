@@ -1,10 +1,9 @@
 # CREST website repository
 
-1. Abhinav look at this before you change anything.
+Abhinav look at this before you change anything.
+I have added some python to make the website run with different pages and later add the files.
 
-1. I have added some python to make the website run with different pages and later add the files.
-
-1. What I want you to do is:
+What I want you to do is:
 
 - Finish the videos page by creating a div for each video. There should be five video divs. For now just use a random video and I'll add safe captures later.
 
