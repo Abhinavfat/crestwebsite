@@ -2,5 +2,13 @@
 {% block title %}Captures{% endblock %}
 {% block intro %}Here you can see the last five videos your safe has caught when it has been opened.{% endblock %}
 {% block content %}
-    <p>Here's some more content</p>
+
+    <div class="videos">
+        <h5>Here is the latest video that your safe took</h5>
+
+        <video width="320" height="240" controls autoplay mute loop>
+            <source src="{{url_for('static', filename='SpinningCheesyPuffs.mp4')}}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
 {% endblock %}
