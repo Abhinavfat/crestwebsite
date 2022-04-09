@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
 
 app = Flask(__name__)
 
@@ -12,7 +12,7 @@ def captures():
 
 @app.route("/faces")
 def faces():
-    return "Faces"
+    return render_template("faces.html")
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
