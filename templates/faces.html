@@ -2,8 +2,10 @@
 {% block title %}Faces{% endblock %}
 {% block intro %}Here you can manage which faces the safe will automatically unlock for.{% endblock %}
 {% block content %}
+    {% for name in faces %}
     <div class="videos">
-        <h5>Face No1</h5>
+        <h5>{{name}}</h5>
         <img src="{{url_for('static', filename='logo.png')}}" alt="Example image" width="320" height="240"/>
     </div>
+    {% endfor %}
 {% endblock %}

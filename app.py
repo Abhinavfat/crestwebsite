@@ -12,11 +12,13 @@ def captures():
 
 @app.route("/faces")
 def faces():
-    return render_template("faces.html")
+    faces = ["Samarth", "Abhinav", "Pranav"]
+    return render_template("faces.html", faces=faces)
 
 @app.route("/passcode")
 def passcode():
-    return render_template("passcodes.html")
+    passcode = 12345
+    return render_template("passcodes.html", passcode=passcode)
 
 if __name__ == '__main__':
     app.run(debug=True)

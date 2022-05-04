@@ -2,5 +2,9 @@
 {% block title %}Passcode{% endblock %}
 {% block intro %}Here you can change or check your passcode{% endblock %}
 {% block content %}
-    
+<form action="/change_code">
+    What's your current passcode? <input type='text' name='curr_code'><br>
+    What's your new passcode? <input type='text' name='new_code'><br>
+    <input type='submit' value='Continue'>
+</form>
 {% endblock %}
