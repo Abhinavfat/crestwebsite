@@ -14,5 +14,9 @@ def captures():
 def faces():
     return render_template("faces.html")
 
+@app.route("/passcode")
+def passcode():
+    return render_template("passcodes.html")
+
 if __name__ == '__main__':
     app.run(debug=True)
