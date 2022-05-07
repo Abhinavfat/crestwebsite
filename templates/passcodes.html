@@ -1,10 +1,15 @@
 {% extends "base.html" %} 
 {% block title %}Passcode{% endblock %}
-{% block intro %}Here you can change or check your passcode{% endblock %}
+{% block intro %}Here you can change your passcode{% endblock %}
 {% block content %}
-<form action="/change_code">
-    What's your current passcode? <input type='text' name='curr_code'><br>
-    What's your new passcode? <input type='text' name='new_code'><br>
-    <input type='submit' value='Continue'>
-</form>
+<div class="passcode">
+    <form action="/change_code">
+        <label for="curr_code">Current passcode</label><br>
+        <input type="password" id="curr_code" name="curr_code"><br>
+        <label for="new_code">New Passcode</label><br>
+        <input type="password" id="new_code" name="new_code"><br>
+        <br>
+        <input type="submit" value="Change">
+    </form>
+</div>
 {% endblock %}

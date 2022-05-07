@@ -32,6 +32,24 @@ h1{
     text-align: center;
 }
 
+.faces{
+    background-color: #AEF6C7;
+    display:block;
+    margin: 50px 30%;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.passcode{
+    background-color: #AEF6C7;
+    display:block;
+    margin: 50px 30%;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
 p{
     color: #AEF6C7;
 }
