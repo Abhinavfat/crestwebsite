@@ -1,0 +1,14 @@
+{
+    "data": [
+        {
+            "passcode": "123456789"
+        },
+        {
+            "faces": {
+                "Samarth": "logo.png",
+                "Abhinav": "logo.png",
+                "Pranav": "logo.png"
+            }
+        }
+    ]
+}

@@ -2,10 +2,15 @@
 {% block title %}Faces{% endblock %}
 {% block intro %}Here you can manage which faces the safe will automatically unlock for.{% endblock %}
 {% block content %}
-    {% for name in faces %}
+    {% for key, value in faces.items() %}
     <div class="faces">
-        <h5>{{name}}</h5>
-        <img src="{{url_for('static', filename='logo.png')}}" alt="Example image" width="320" height="240"/>
+        <h5>{{key}}</h5>
+        <img src="{{url_for('static', filename=value)}}" alt="Example image" width="320" height="240"/>
+
+        <form action="" method="post">
+            <br>
+            <input type="submit" value="Delete {{key}}" name="{{key}}">
+        </form>
     </div>
     {% endfor %}
 {% endblock %}

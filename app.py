@@ -1,11 +1,14 @@
 from flask import Flask, render_template, url_for, request, redirect
+import json
 
 app = Flask(__name__)
 
 @app.route("/", methods=["POST", "GET"])
 def login():
-    with open("passcode_data.txt", "r") as f:
-        passcode = f.read()
+    with open("data.json") as f:
+        data = json.load(f)
+        
+    passcode = data["data"][0].get("passcode")
 
     if request.method == "POST":
         check_code = request.form["passcode"]
@@ -24,10 +27,24 @@ def home():
 def captures():
     return render_template("videos.html")
 
-@app.route("/faces")
+@app.route("/faces", methods=["GET", "POST"])
 def faces():
-    faces = ["Samarth", "Abhinav", "Pranav"]
-    return render_template("faces.html", faces=faces)
+    with open("data.json") as f:
+        data = json.load(f)
+
+    faces = data["data"][1]["faces"]
+
+    if request.method == "POST":
+        for face, images in list(faces.items()):
+            if request.form.get(face) == f"Delete {face}":
+                faces.pop(face)
+                data["data"][1]["faces"] = faces
+                with open("data.json", "w") as f:
+                    json.dump(data, f, indent=4)
+
+        return render_template("faces.html", faces=faces)
+    else:
+        return render_template("faces.html", faces=faces)
 
 @app.route("/passcode")
 def passcode():
@@ -35,19 +52,23 @@ def passcode():
 
 @app.route("/change_code", methods=["GET", "POST"])
 def change_code():
-    with open("passcode_data.txt", "r") as f:
-        passcode = f.read()
+    with open("data.json") as f:
+        data = json.load(f)
+        
+    passcode = data["data"][0].get("passcode")
+
     message = ""
 
     if request.method == "POST":
         new_code = request.form["new_code"]
         try:
             new_code = int(new_code)
-            with open("passcode_data.txt", "w") as f:
-                f.write(str(new_code))
+            data["data"][0]["passcode"] = str(new_code)
+            with open("data.json", "w") as f:
+                json.dump(data, f, indent=4)
             message = "Your passcode was successfully updated!"
         except:
-            message = "Sorry, passcodes can only consist of numbers."
+            message = "nope :)"
 
         return render_template("change_code_result.html", message=message)
     else:
