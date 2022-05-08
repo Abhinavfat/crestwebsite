@@ -3,9 +3,7 @@
 {% block intro %}Here you can change your passcode{% endblock %}
 {% block content %}
 <div class="passcode">
-    <form action="/change_code">
-        <label for="curr_code">Current passcode</label><br>
-        <input type="password" id="curr_code" name="curr_code"><br>
+    <form action="/change_code" method="post">
         <label for="new_code">New Passcode</label><br>
         <input type="password" id="new_code" name="new_code"><br>
         <br>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="static/styles/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="passcode">
+        <form action="#" method="post">
+            <label for="code">Enter passcode:</label><br>
+            <input type="password" id="code" name="passcode"><br>
+            <br>
+            <input type="submit" value="Enter">
+        </form>
+        {% if incorrect == True %}
+        <h6>Incorrect passcode</h6>
+        {% endif %}
+    </div>
+</body>
+</html>
