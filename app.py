@@ -21,7 +21,8 @@ def passcode():
 
 @app.route("/change_code")
 def change_code():
-    passcode = "12345"
+    with open("passcode_data.txt", "r") as f:
+        passcode = f.read()
     old_code = request.args.get("curr_code", "")
     new_code = request.args.get("new_code", "")
     message = ""
@@ -29,7 +30,8 @@ def change_code():
     if old_code == passcode:
         try:
             new_code = int(new_code)
-            passcode = str(new_code)
+            with open("passcode_data.txt", "w") as f:
+                f.write(str(new_code))
             message = "Your passcode was successfully updated!"
         except:
             message = "Sorry, passcodes can only consist of numbers."
