@@ -46,6 +46,10 @@ def faces():
     else:
         return render_template("faces.html", faces=faces)
 
+@app.route("/new_face")
+def new_face():
+    return render_template("new_face.html")
+
 @app.route("/passcode")
 def passcode():
     return render_template("passcodes.html")
@@ -68,7 +72,7 @@ def change_code():
                 json.dump(data, f, indent=4)
             message = "Your passcode was successfully updated!"
         except:
-            message = "nope :)"
+            message = "Passcodes can only contain numbers!"
 
         return render_template("change_code_result.html", message=message)
     else:

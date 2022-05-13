@@ -50,6 +50,21 @@ h1{
     text-align: center;
 }
 
+input[type="submit"] {
+    background-color: #294936;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:6px;
+    color: #fff;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+    text-decoration: none;
+    cursor: pointer;
+    border:none;
+    display: block;
+    margin: auto auto 20px auto;
+}
+
 p{
     color: #AEF6C7;
 }

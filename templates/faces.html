@@ -2,6 +2,11 @@
 {% block title %}Faces{% endblock %}
 {% block intro %}Here you can manage which faces the safe will automatically unlock for.{% endblock %}
 {% block content %}
+
+    <form action="/new_face">
+        <input type="submit" value="Add new face" id="submit">
+    </form>
+
     {% for key, value in faces.items() %}
     <div class="faces">
         <h5>{{key}}</h5>
@@ -13,4 +18,5 @@
         </form>
     </div>
     {% endfor %}
+
 {% endblock %}
