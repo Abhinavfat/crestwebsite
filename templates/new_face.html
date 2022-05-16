@@ -2,4 +2,18 @@
 {% block title %}Faces{% endblock %}
 {% block intro %}Please fill in a few things to add a new recognisable face.{% endblock %}
 {% block content %}
+<div class="faces">
+    <form action="/faces" method="post" enctype="multipart/form-data">
+        <label for="new_name">Name</label><br>
+        <input type="text" name="new_name" id="new_name"><br>
+        <br>
+
+        <label>Select an image</label>
+        <input type="file" name="image" id="image">
+        <label for="image">Select image...</label>
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
 {% endblock %}

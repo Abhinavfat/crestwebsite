@@ -1,5 +1,6 @@
 from flask import Flask, render_template, url_for, request, redirect
 import json
+import os
 
 app = Flask(__name__)
 
@@ -27,6 +28,8 @@ def home():
 def captures():
     return render_template("videos.html")
 
+app.config["IMAGE_UPLOADS"] = 'C:/Users\samar\OneDrive\Documents\CodingProjects\crestwebsite\static\photos'
+
 @app.route("/faces", methods=["GET", "POST"])
 def faces():
     with open("data.json") as f:
@@ -42,12 +45,20 @@ def faces():
                 with open("data.json", "w") as f:
                     json.dump(data, f, indent=4)
 
-        return render_template("faces.html", faces=faces)
-    else:
-        return render_template("faces.html", faces=faces)
+        image = request.files["image"]
+        direct = request.form["new_name"]
 
-@app.route("/new_face")
+        os.mkdir(os.path.join(app.config["IMAGE_UPLOADS"], request.form["new_name"]))
+
+        file = direct + "\\" + image.filename
+        print(file)
+        image.save(os.path.join(app.config["IMAGE_UPLOADS"], file))
+
+    return render_template("faces.html", faces=faces)
+
+@app.route("/new_face", methods=["GET","POST"])
 def new_face():
+    
     return render_template("new_face.html")
 
 @app.route("/passcode")
