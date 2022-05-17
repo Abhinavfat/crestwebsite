@@ -10,7 +10,7 @@
     {% for key, value in faces.items() %}
     <div class="faces">
         <h5>{{key}}</h5>
-        <img src="{{url_for('static', filename=value)}}" alt="Example image" width="320" height="240"/>
+        <img src="{{url_for('static', filename='/photos/'+key+'/'+value[0])}}" alt="Example image" width="320" height="240"/>
 
         <form action="" method="post">
             <br>

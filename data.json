@@ -5,9 +5,18 @@
         },
         {
             "faces": {
-                "Samarth": "logo.png",
-                "Abhinav": "logo.png",
-                "Pranav": "logo.png"
+                "Samarth": [
+                    "logo.png"
+                ],
+                "Abhinav": [
+                    "Highest cube score.png"
+                ],
+                "Pranav": [
+                    "logo.png"
+                ],
+                "Wenfei": [
+                    "Highest cube score.png"
+                ]
             }
         }
     ]

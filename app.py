@@ -45,20 +45,35 @@ def faces():
                 with open("data.json", "w") as f:
                     json.dump(data, f, indent=4)
 
-        image = request.files["image"]
-        direct = request.form["new_name"]
-
-        os.mkdir(os.path.join(app.config["IMAGE_UPLOADS"], request.form["new_name"]))
-
-        file = direct + "\\" + image.filename
-        print(file)
-        image.save(os.path.join(app.config["IMAGE_UPLOADS"], file))
-
     return render_template("faces.html", faces=faces)
 
 @app.route("/new_face", methods=["GET","POST"])
 def new_face():
-    
+    with open("data.json") as f:
+        data = json.load(f)
+
+    faces = data["data"][1]["faces"]
+
+    if request.method == "POST":
+        image = request.files["image"]
+        direct = request.form["new_name"]
+
+        try:
+            os.mkdir(os.path.join(app.config["IMAGE_UPLOADS"], request.form["new_name"]))
+        except:
+            pass
+        file = direct + "\\" + image.filename
+        print(file)
+        image.save(os.path.join(app.config["IMAGE_UPLOADS"], file))
+
+        faces[request.form["new_name"]] = [image.filename]
+        data["data"][1]["faces"] = faces
+
+        with open("data.json", "w") as f:
+                json.dump(data, f, indent=4)
+
+        return redirect(url_for("faces"))        
+
     return render_template("new_face.html")
 
 @app.route("/passcode")
