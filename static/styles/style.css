@@ -35,10 +35,11 @@ h1{
 .faces{
     background-color: #AEF6C7;
     display:block;
-    margin: 50px 30%;
+    margin: auto;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
+    width: 50%;
 }
 
 .passcode{
