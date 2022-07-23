@@ -69,16 +69,18 @@ def new_face():
         faces = data["data"][1]["faces"]
 
         if request.method == "POST":
-            image = request.files["image"]
+            images = request.files.getlist("file[]")
             direct = request.form["new_name"]
 
             try:
                 os.mkdir(os.path.join(app.config["IMAGE_UPLOADS"], request.form["new_name"]))
             except:
                 pass
-            file = direct + "\\" + image.filename
-            print(file)
-            image.save(os.path.join(app.config["IMAGE_UPLOADS"], file))
+
+            for image in images:
+                file = direct + "\\" + image.filename
+                print(file)
+                image.save(os.path.join(app.config["IMAGE_UPLOADS"], file))
 
             faces[request.form["new_name"]] = [image.filename]
             data["data"][1]["faces"] = faces
